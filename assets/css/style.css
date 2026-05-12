@@ -770,11 +770,20 @@ main {
 
 .clients-item img {
   width: 100%;
-  filter: grayscale(1);
+  /* Menghilangkan abu-abu */
+  filter: grayscale(0); 
+  /* Memberikan kesan lembut/tidak mencolok dengan transparansi sedikit */
+  opacity: 0.7; 
   transition: var(--transition-1);
 }
 
-.clients-item img:hover { filter: grayscale(0); }
+.clients-item img:hover {
+  /* Efek berkilau: meningkatkan kecerahan dan transparansi saat hover */
+  opacity: 1;
+  filter: brightness(1.2);
+  /* Tambahan: sedikit bayangan lembut agar terlihat lebih hidup */
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
+}
 
 
 
