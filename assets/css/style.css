@@ -20,74 +20,81 @@
   /**
    * colors
    */
-.profile-photo-circle {
-  width: 100px;
-  height: 100px;
-  padding: 6px;
-  background-color: #f3f4f6; /* warna abu terang */
-  border: 2px solid #ccc;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
 
-.rounded-photo {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid white;
-}
+  /* CSS Klasik untuk Profile Foto */
+  .profile-photo-circle {
+    width: 100px;
+    height: 100px;
+    padding: 6px;
+    background-color: #ffffff;
+    border: 2px solid #e2e8f0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
 
-  /* gradient */
+  .rounded-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ffffff;
+  }
+
+  /* Gradient - Soft & Modern */
 
   --bg-gradient-onyx: linear-gradient(
     to bottom right, 
-    hsl(240, 1%, 25%) 3%, 
-    hsl(0, 0%, 19%) 97%
+    hsl(0, 0%, 100%) 0%, 
+    hsl(210, 20%, 97%) 100%
   );
+  
   --bg-gradient-jet: linear-gradient(
     to bottom right, 
-    hsla(240, 1%, 18%, 0.251) 0%, 
-    hsla(240, 2%, 11%, 0) 100%
-  ), hsl(240, 2%, 13%);
+    hsla(210, 20%, 98%, 0.9) 0%, 
+    hsla(210, 20%, 94%, 0.6) 100%
+  ), hsl(0, 0%, 100%);
+  
   --bg-gradient-yellow-1: linear-gradient(
     to bottom right, 
-    hsl(45, 100%, 71%) 0%, 
-    hsla(36, 100%, 69%, 0) 50%
+    hsl(38, 92%, 50%) 0%, 
+    hsla(38, 92%, 50%, 0.1) 100%
   );
+  
   --bg-gradient-yellow-2: linear-gradient(
     135deg, 
-    hsla(45, 100%, 71%, 0.251) 0%, 
-    hsla(35, 100%, 68%, 0) 59.86%
-  ), hsl(240, 2%, 13%);
+    hsla(38, 92%, 50%, 0.15) 0%, 
+    hsla(38, 92%, 50%, 0) 60%
+  ), hsl(0, 0%, 100%);
+  
   --border-gradient-onyx: linear-gradient(
     to bottom right, 
-    hsl(0, 0%, 25%) 0%, 
-    hsla(0, 0%, 25%, 0) 50%
+    hsl(210, 20%, 90%) 0%, 
+    hsla(210, 20%, 90%, 0) 50%
   );
+  
   --text-gradient-yellow: linear-gradient(
     to right, 
-    hsl(45, 100%, 72%), 
-    hsl(35, 100%, 68%)
+    hsl(38, 92%, 50%), 
+    hsl(25, 95%, 53%)
   );
 
-  /* solid */
+  /* Solid Colors */
 
-  --jet: hsl(0, 0%, 22%);
-  --onyx: hsl(240, 1%, 17%);
-  --eerie-black-1: hsl(240, 2%, 13%);
-  --eerie-black-2: hsl(240, 2%, 12%);
-  --smoky-black: hsl(0, 0%, 7%);
-  --white-1: hsl(0, 0%, 100%);
-  --white-2: hsl(0, 0%, 98%);
-  --orange-yellow-crayola: hsl(45, 100%, 72%);
-  --vegas-gold: hsl(45, 54%, 58%);
-  --light-gray: hsl(0, 0%, 84%);
-  --light-gray-70: hsla(0, 0%, 84%, 0.7);
-  --bittersweet-shimmer: hsl(0, 43%, 51%);
+  --jet: hsl(210, 20%, 90%);                /* Border lembut */
+  --onyx: hsl(210, 20%, 94%);               /* Track/Background aksen lunak */
+  --eerie-black-1: hsl(0, 0%, 100%);        /* Background elemen dalam */
+  --eerie-black-2: hsl(0, 0%, 100%);        /* Card/Sidebar Background (Putih Bersih) */
+  --smoky-black: hsl(210, 20%, 97%);        /* Body Background (Sangat terang, lembut) */
+  --white-1: hsl(215, 25%, 27%);            /* Teks Utama (Navy Dark / Slate - pengganti hitam) */
+  --white-2: hsl(215, 28%, 17%);            /* Heading / Judul Utama */
+  --orange-yellow-crayola: hsl(38, 92%, 50%);/* Warna Aksen Utama (Warm Amber Gold) */
+  --vegas-gold: hsl(38, 85%, 45%);         /* Aksen Sub-title / Tahun */
+  --light-gray: hsl(215, 16%, 47%);         /* Deskripsi / Paragraf */
+  --light-gray-70: hsla(215, 16%, 47%, 0.8);/* Sub-teks / Tanggal */
+  --bittersweet-shimmer: hsl(354, 70%, 54%);/* Warna Error/Validasi */
 
   /**
    * typography
@@ -113,14 +120,14 @@
   --fw-600: 600;
 
   /**
-   * shadow
+   * shadow (Disesuaikan agar lembut di latar terang)
    */
   
-  --shadow-1: -4px 8px 24px hsla(0, 0%, 0%, 0.25);
-  --shadow-2: 0 16px 30px hsla(0, 0%, 0%, 0.25);
-  --shadow-3: 0 16px 40px hsla(0, 0%, 0%, 0.25);
-  --shadow-4: 0 25px 50px hsla(0, 0%, 0%, 0.15);
-  --shadow-5: 0 24px 80px hsla(0, 0%, 0%, 0.25);
+  --shadow-1: 0 4px 20px hsla(210, 20%, 20%, 0.06);
+  --shadow-2: 0 10px 30px hsla(210, 20%, 20%, 0.08);
+  --shadow-3: 0 10px 40px hsla(210, 20%, 20%, 0.1);
+  --shadow-4: 0 15px 35px hsla(210, 20%, 20%, 0.07);
+  --shadow-5: 0 20px 60px hsla(210, 20%, 20%, 0.12);
 
   /**
    * transition
@@ -479,7 +486,8 @@ main {
   bottom: 0;
   left: 0;
   width: 100%;
-  background: hsla(240, 1%, 17%, 0.75);
+  /* Ini yang diubah: background putih gelap dengan transparansi 85% */
+  background: hsla(210, 20%, 96%, 0.85); 
   backdrop-filter: blur(10px);
   border: 1px solid var(--jet);
   border-radius: 12px 12px 0 0;
