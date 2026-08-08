@@ -1915,5 +1915,197 @@ textarea.form-input::-webkit-resizer { display: none; }
 	 */
 
   .timeline-text { max-width: 700px; }
+  
+  .clients-item img {
+  width: 100%;
+  filter: grayscale(0); 
+  opacity: 0.7; 
+  /* Ubah transisi agar lebih membal (bouncy) */
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.3s ease; 
+}
+
+.clients-item img:hover {
+  opacity: 1;
+  filter: brightness(1.2) drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
+  /* Tambahkan efek membesar dan sedikit berputar */
+  transform: scale(1.15) rotate(-5deg); 
+}
+
+@keyframes fillBar {
+  from { width: 0; }
+}
+
+.skill-progress-fill {
+  background: var(--text-gradient-yellow);
+  height: 100%;
+  border-radius: inherit;
+  /* Tambahkan animasi ini */
+  animation: fillBar 10s ease-out forwards;
+}
+
+.project-item > a {
+  width: 100%;
+  display: block;
+  border-radius: 20px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.project-item > a:hover {
+  box-shadow: 0 10px 25px hsla(38, 92%, 50%, 0.3);
+  transform: translateY(-5px);
+}
+
+/* Modifikasi class .service-item yang sudah ada dengan menambahkan transition */
+.service-item {
+  position: relative;
+  background: var(--border-gradient-onyx);
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: var(--shadow-2);
+  z-index: 1;
+  /* Tambahkan baris di bawah ini untuk animasi yang mulus */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Tambahkan class hover ini di bawah .service-item */
+.service-item:hover {
+  transform: translateY(-5px); /* Membuat kartu sedikit terangkat */
+  /* Memberikan efek bayangan menyala dengan warna aksen kuning kamu */
+  box-shadow: 0 10px 30px hsla(38, 92%, 50%, 0.15); 
+}
+
+/* Pastikan kartu memiliki posisi relatif dan menahan elemen kilau agar tidak keluar batas */
+.testimonials-item .content-card {
+  position: relative;
+  overflow: hidden; 
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 1. Efek Box Shadow & Mengambang saat Hover */
+.testimonials-item .content-card:hover {
+  transform: translateY(-5px);
+  /* Bayangan kuning/oranye yang menyesuaikan tema warnamu */
+  box-shadow: 0 10px 30px hsla(38, 92%, 50%, 0.15); 
+}
+
+/* 2. Membuat Elemen Cahaya Kilau (Shimmer) */
+.testimonials-item .content-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  /* Gradasi cahaya putih transparan */
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-25deg); /* Memiringkan cahaya agar terlihat lebih dinamis */
+  z-index: 2;
+  transition: none;
+}
+
+/* 3. Menjalankan Animasi Kilau saat Hover */
+.testimonials-item .content-card:hover::before {
+  animation: shimmerSweep 0.8s ease-out forwards;
+}
+
+/* Keyframe untuk sapuan cahaya dari kiri ke kanan */
+@keyframes shimmerSweep {
+  0% { left: -100%; }
+  100% { left: 200%; }
+}
+
+/* Menambahkan efek denyut cahaya pada foto profil */
+/* Modifikasi class .rounded-photo */
+.rounded-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 80%;
+  object-fit: cover;
+  border: 2px solid #ffffff;
+  /* Kita ubah nama animasinya dan kurangi durasinya agar lebih enerjik */
+  animation: float 2s ease-in-out infinite, belingBeling 1.5s ease-out infinite; 
+}
+
+/* Keyframe untuk efek beling / glitter meledak */
+@keyframes belingBeling {
+  0% {
+    /* Cahaya utama foto redup */
+    box-shadow: 
+      0 0 10px hsla(38, 92%, 50%, 0.2), 
+      0 0 20px hsla(38, 92%, 50%, 0.1),
+      /* 20 titik bersembunyi di tengah (semua transparan) */
+      0 0 0 -59px transparent, 0 0 0 -58px transparent, 0 0 0 -59px transparent, 0 0 0 -58px transparent,
+      0 0 0 -59px transparent, 0 0 0 -58px transparent, 0 0 0 -59px transparent, 0 0 0 -58px transparent,
+      0 0 0 -59px transparent, 0 0 0 -58px transparent, 0 0 0 -59px transparent, 0 0 0 -58px transparent,
+      0 0 0 -59px transparent, 0 0 0 -58px transparent, 0 0 0 -59px transparent, 0 0 0 -58px transparent,
+      0 0 0 -59px transparent, 0 0 0 -58px transparent, 0 0 0 -59px transparent, 0 0 0 -58px transparent;
+  }
+  30% {
+    /* Cahaya utama membesar */
+    box-shadow: 
+      0 0 25px hsla(38, 92%, 50%, 0.5), 
+      0 0 40px hsla(38, 92%, 50%, 0.3),
+      
+      /* Beling meledak ke segala arah dengan campuran warna putih & kuning (emas) */
+      /* Lingkaran Luar */
+      -40px -60px 0 -59px #fff,
+       50px -50px 0 -58px hsla(38, 92%, 50%, 1),
+       70px -15px 0 -59px #fff,
+       65px  40px 0 -58px hsla(38, 92%, 50%, 1),
+       35px  70px 0 -59px #fff,
+      -15px  75px 0 -58px hsla(38, 92%, 50%, 1),
+      -55px  55px 0 -59px #fff,
+      -70px  15px 0 -58px hsla(38, 92%, 50%, 1),
+      -65px -35px 0 -59px #fff,
+      -15px -70px 0 -58px hsla(38, 92%, 50%, 1),
+      
+      /* Lingkaran Dalam (Bergerak lebih lambat/dekat) */
+      -25px -40px 0 -59px hsla(38, 92%, 50%, 0.8),
+       35px -30px 0 -58px #fff,
+       45px  15px 0 -59px hsla(38, 92%, 50%, 0.9),
+       25px  45px 0 -58px #fff,
+      -30px  40px 0 -59px hsla(38, 92%, 50%, 0.8),
+      -45px   5px 0 -58px #fff,
+      
+      /* Loncatan Acak (Beling yang terlempar jauh) */
+      -80px -20px 0 -59px #fff,
+       10px -90px 0 -58px hsla(38, 92%, 50%, 1),
+       85px   5px 0 -59px #fff,
+       10px  85px 0 -58px hsla(38, 92%, 50%, 0.9);
+  }
+  100% {
+    /* Cahaya kembali redup */
+    box-shadow: 
+      0 0 10px hsla(38, 92%, 50%, 0.2), 
+      0 0 20px hsla(38, 92%, 50%, 0.1),
+      
+      /* Semua beling terbang jauh dan menguap (opacity menjadi transparent) */
+      -80px -120px 0 -59px transparent,
+       100px -100px 0 -58px transparent,
+       140px -30px 0 -59px transparent,
+       130px  80px 0 -58px transparent,
+       70px  140px 0 -59px transparent,
+      -30px  150px 0 -58px transparent,
+      -110px  110px 0 -59px transparent,
+      -140px  30px 0 -58px transparent,
+      -130px -70px 0 -59px transparent,
+      -30px -140px 0 -58px transparent,
+      -50px -80px 0 -59px transparent,
+       70px -60px 0 -58px transparent,
+       90px  30px 0 -59px transparent,
+       50px  90px 0 -58px transparent,
+      -60px  80px 0 -59px transparent,
+      -90px  10px 0 -58px transparent,
+      -120px -40px 0 -59px transparent,
+       20px -130px 0 -58px transparent,
+       130px  10px 0 -59px transparent,
+       20px  130px 0 -58px transparent;
+  }
+}
 
 }
