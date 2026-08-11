@@ -209,6 +209,7 @@ if (downloadCvBtn) {
   downloadCvBtn.addEventListener("click", function (e) {
     e.preventDefault();
 
+    // Mengambil URL direct download langsung dari atribut href HTML
     const fileUrl = this.getAttribute("href");
 
     // 1. Ubah tampilan ke status Loading
@@ -217,15 +218,9 @@ if (downloadCvBtn) {
     if (cvStatusDesc) cvStatusDesc.textContent = "Please wait a moment...";
     downloadCvBtn.style.pointerEvents = "none";
 
-    // 2. Jalankan unduhan di latar belakang
-    let iframe = document.getElementById("hidden-download-iframe");
-    if (!iframe) {
-      iframe = document.createElement("iframe");
-      iframe.id = "hidden-download-iframe";
-      iframe.style.display = "none";
-      document.body.appendChild(iframe);
-    }
-    iframe.src = fileUrl;
+    // 2. Memicu Download (Cara ini didukung 100% oleh iOS Safari, Android, dan Laptop)
+    // Browser akan mendeteksi file dan men-download-nya tanpa berpindah halaman
+    window.location.href = fileUrl;
 
     // 3. Tampilkan efek sukses (ceklis) setelah 1.5 detik
     setTimeout(() => {
@@ -237,7 +232,7 @@ if (downloadCvBtn) {
       setTimeout(() => {
         if (cvText) cvText.textContent = "Download CV";
         if (cvIcon) cvIcon.textContent = "📥";
-        if (cvStatusDesc) cvStatusDesc.textContent = "To download the CV.";
+        if (cvStatusDesc) cvStatusDesc.textContent = "Click to download my CV in PDF format.";
         downloadCvBtn.style.pointerEvents = "auto";
       }, 3000);
 
