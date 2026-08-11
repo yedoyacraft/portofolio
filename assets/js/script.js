@@ -156,6 +156,52 @@ for (let i = 0; i < navigationLinks.length; i++) {
     }
 
   });
+
+  // Download CV Process with Loading and Success Checkmark
+const downloadCvBtn = document.getElementById("download-cv-btn");
+const cvText = document.getElementById("cv-text");
+const cvIcon = document.getElementById("cv-icon");
+const cvStatusDesc = document.getElementById("cv-status-desc");
+
+if (downloadCvBtn) {
+  downloadCvBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    const fileUrl = this.getAttribute("href");
+
+    // 1. Ubah tampilan ke status Loading
+    cvText.textContent = "Downloading...";
+    cvIcon.innerHTML = `<span class="cv-spinner"></span>`;
+    cvStatusDesc.textContent = "Please wait a moment...";
+    downloadCvBtn.style.pointerEvents = "none"; // Mencegah klik ganda saat proses
+
+    // 2. Jalankan unduhan di latar belakang (tanpa buka tab baru / tanpa reload)
+    let iframe = document.getElementById("hidden-download-iframe");
+    if (!iframe) {
+      iframe = document.createElement("iframe");
+      iframe.id = "hidden-download-iframe";
+      iframe.style.display = "none";
+      document.body.appendChild(iframe);
+    }
+    iframe.src = fileUrl;
+
+    // 3. Tampilkan efek sukses (ceklis) setelah 1.5 detik
+    setTimeout(() => {
+      cvText.textContent = "Downloaded!";
+      cvIcon.innerHTML = `<span class="cv-success-icon">✅</span>`;
+      cvStatusDesc.textContent = "CV downloaded successfully!";
+
+      // 4. Kembalikan ke tombol semula setelah 3 detik
+      setTimeout(() => {
+        cvText.textContent = "Download CV";
+        cvIcon.textContent = "📥";
+        cvStatusDesc.textContent = "To download the CV.";
+        downloadCvBtn.style.pointerEvents = "auto";
+      }, 3000);
+
+    }, 1500);
+  });
+}
 }
 
  
