@@ -7,6 +7,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Alvin Fredericco</title>
 
+  <!-- EmailJS SDK -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "e0lnL1tFb5nmnxMeu", // Ganti dengan Public Key EmailJS Anda
+      });
+   })();
+</script>
   <!--
     - favicon
   -->
@@ -881,6 +890,10 @@
         - #CONTACT
       -->
 
+<!--
+        - #CONTACT
+      -->
+
       <article class="contact" data-page="contact">
 
         <header>
@@ -890,47 +903,40 @@
         <section class="mapbox" data-mapbox>
           <figure>
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15929.789418671287!2d100.3732457!3d-0.9330511!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2fd4b922d4c570e3%3A0x6c0a0e1a184f2ec4!2sKubu%20Dalam%20Parak%20Karakah%2C%20Padang%20Tim.%2C%20Kota%20Padang%2C%20Sumatera%20Barat!5e0!3m2!1sid!2sid!4v1721112345678"
-              width="400" height="300" loading="lazy"></iframe>
+              src="https://www.google.com/maps?q=-0.9442976,100.3873893&output=embed"
+              width="100%"
+              height="400"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy">
+            </iframe>
           </figure>
         </section>
 
-<section class="contact-form">
-  <h3 class="h3 form-title">Contact Form</h3>
+        <section class="contact-form">
 
-  <form onsubmit="return sendToWhatsApp()" class="form">
+          <h3 class="h3 form-title">Contact Form</h3>
 
-    <div class="input-wrapper">
-      <input type="text" id="fullname" class="form-input" placeholder="Full name" required>
-      <input type="email" id="email" class="form-input" placeholder="Email address" required>
-    </div>
+          <!-- Form submission akan ditangani oleh JavaScript (e.preventDefault) -->
+          <form action="#" class="form" data-form>
 
-    <textarea id="message" class="form-input" placeholder="Your Message" required></textarea>
+            <div class="input-wrapper">
+              <!-- Pastikan atribut name="..." sesuai dengan variabel di template EmailJS -->
+              <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
 
-    <button class="form-btn" type="submit">
-      <ion-icon name="paper-plane"></ion-icon>
-      <span>Send Message</span>
-    </button>
+              <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
+            </div>
 
-  </form>
-</section>
+            <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
 
-<script>
-  function sendToWhatsApp() {
-    const name = document.getElementById("fullname").value;
-    const email = document.getElementById("email").value;
-    const message = document.getElementById("message").value;
+            <button class="form-btn" type="submit" disabled data-form-btn>
+              <ion-icon name="paper-plane"></ion-icon>
+              <span>Send Message</span>
+            </button>
 
-    const phoneNumber = "6281515815319"; // Ganti dengan nomor kamu
-    const text = `Hello Alvin,%0A%0AI would like to leave a message or provide some information...:%0A%0A👤 Name: ${name}%0A📧 Email: ${email}%0A💬 Message: ${message}`;
-    
-    const url = `https://wa.me/${phoneNumber}?text=${text}`;
+          </form>
 
-    window.open(url, "_blank");
-    return false;
-  }
-</script>
-
+        </section>
 
       </article>
 
