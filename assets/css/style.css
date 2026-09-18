@@ -1284,7 +1284,6 @@ textarea.form-input::-webkit-resizer { display: none; }
    * #PORTFOLIO, BLOG 
    */
 
-  .project-img,
   .blog-banner-box { height: auto; }
 
 }
@@ -1946,14 +1945,26 @@ textarea.form-input::-webkit-resizer { display: none; }
 .project-item > a {
   width: 100%;
   display: block;
-  border-radius: 20px;
+  background: var(--border-gradient-onyx);
+  padding: 12px;
+  border-radius: 16px;
+  box-shadow: var(--shadow-2);
   transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .project-item > a:hover {
-  box-shadow: 0 10px 25px hsla(38, 92%, 50%, 0.3);
+  box-shadow: 0 10px 25px hsla(38, 92%, 50%, 0.25);
   transform: translateY(-5px);
 }
+
+.project-img {
+  margin-bottom: 12px;
+}
+
+.project-title,
+.project-category { margin-left: 4px; }
+
+.project-title { margin-bottom: 2px; }
 
 /* Modifikasi class .service-item yang sudah ada dengan menambahkan transition */
 .service-item {
